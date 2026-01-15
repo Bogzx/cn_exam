@@ -49,9 +49,9 @@ Please explain why the user's answer was incorrect and why the correct answer is
         }
       );
 
-      // If model is overloaded (503), try the next model
-      if (response.status === 503) {
-        console.warn(`Model ${model} is overloaded, trying fallback...`);
+      // If model is overloaded (503) or quota exceeded (429), try the next model
+      if (response.status === 503 || response.status === 429) {
+        console.warn(`Model ${model} unavailable (${response.status}), trying fallback...`);
         continue;
       }
 
