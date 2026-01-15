@@ -5,9 +5,7 @@ import {
   Moon,
   Sun,
   Settings2,
-  History,
   HelpCircle,
-  Search,
 } from "lucide-react";
 import "./ios.css";
 import "./App.css";
@@ -23,6 +21,7 @@ interface Question {
   question: string;
   answers: string[];
   correct: string; // Can be like "a", "bc", "ad", or a direct answer
+  image?: string; // Optional image URL for the question
 }
 
 function App() {
@@ -325,7 +324,7 @@ function App() {
           break;
 
         // Number keys 1-9 for quick answer selection
-        default:
+        default: {
           const num = parseInt(e.key);
           if (
             !isAnswerSubmitted &&
@@ -336,6 +335,7 @@ function App() {
             handleAnswerSelect(currentQuestion.answers[num - 1]);
           }
           break;
+        }
       }
     };
 
