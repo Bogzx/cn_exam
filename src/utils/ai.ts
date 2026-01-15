@@ -26,7 +26,7 @@ Correct answer: ${correctAnswer}
 Please explain why the user's answer was incorrect and why the correct answer is right. Reference the specific options in your explanation.`;
 
   // Models to try in order (primary, then fallback)
-  const models = ["gemini-3-flash-preview", "gemini-2.5-flash"];
+  const models = ["gemini-3-flash-preview", "gemini-2.5-flash", "gemini-2.5-flash-lite"];
 
   for (const model of models) {
     try {
